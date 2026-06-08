@@ -16,7 +16,6 @@ An 8-step programmable drum machine built from scratch using Arduino Uno. This p
 * **Data Pipeline:** Serial UART -> loopMIDI -> Hairless MIDI Bridge
 * **Schematic Capture:** EasyEDA
 
----
 
 ### Pin Configuration Matrix
 
