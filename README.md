@@ -3,10 +3,10 @@
 An 8-step programmable drum machine built from scratch using Arduino Uno. This project utilizes a custom coded LED matrix, shift-register multiplexing, a 4x4 matrix keypad input, and a Serial-to-MIDI bridge to trigger audio in real-time.
 
 ##  Systems Demonstration
-| State Logic & Input | Hardware Metronome & Multiplexing |
+| Logic State Input | Hardware Metronome & Multiplexing |
 | :---: | :---: |
-| ![Building a beat](assets/demo_build.gif) | ![Sweep logic](assets/demo_sweep.gif) |
-| *2D array state-tracking via 4x4 keypad.* | *Non-blocking `millis()` timer synced to multiplexer.* |
+| ![Building a beat](assets/drum_build.gif) | ![Sweep logic](assets/drum_play.gif) |
+
 
 
 ## Technical Stack & Hardware Architecture
