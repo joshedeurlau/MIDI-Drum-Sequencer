@@ -35,13 +35,13 @@ An 8-step programmable drum machine built from scratch using Arduino Uno. This p
 ##  Core Engineering Principles Implemented
 
 ### 1. Matrix Multiplexing (74HC595)
-Since there are not enough I/O pins on the microcontroller to drive the entire matrix directly, the matrix rows (ground paths) are multiplexed using a 74HC595 8-bitshift register. It rapidly cycles the active-LOW states with the following sequence
+Since there are not enough I/O pins on the microcontroller to drive the entire matrix directly, the matrix rows (ground paths) are multiplexed using a 74HC595 8-bitshift register. It quickly cycles the active-LOW states with the following sequence
 ```text
   Bit:   Q7   Q6   Q5   Q4   Q3   Q2   Q1   Q0
         [ I ][ I ][ I ][ X ][ X ][ X ][ X ][ S ]
           |    |    |    |    |    |    |    |
           |    |    |    |    |    |    |    +---> [Bit 0]  Matrix Row 8: Sweep Animation (Pin 15)
-          |    |    |    +----+----+----+--------> [Bits 1-4] Reserved Matrix Rows (Pins 1, 2, 3, 4)
+          |    |    |    +----+----+----+--------> [Bits 1-4] Unused Bits 
           |    |    +----------------------------> [Bit 5]  Matrix Row 3: Kick Drum (Pin 5)
           |    +---------------------------------> [Bit 6]  Matrix Row 2: Snare Drum (Pin 6)
           +--------------------------------------> [Bit 7]  Matrix Row 1: Hi-Hat (Pin 7)
@@ -51,7 +51,7 @@ Since there are not enough I/O pins on the microcontroller to drive the entire m
 * **Dedicated Hardware Bit for Sweep Animation:** The physical sweeping metronome is coded directly into the lowest bit (Bit 0) of the shift register byte. The sweep animation across row 8 is fully based on the adjustable BPM within the code, which determines the speed of the LED lights.
 
 ### 2. Understanding Voltage Difference to Light Up Specific LEDs
-To turn an LED ON, the microcontroller drives a column to 5V (HIGH) while the shift register pulls a row to 0V (LOW). This creates a forward-biased circuit, allowing current to flow and turn on the LED. Conversely, to keep an LED OFF, the system sets the row to 5V and the column to 0V. Because diodes physically block reverse current, this inverted voltage state stops the electron flow, keeping the unselected LEDs dark.
+In order to turn an LED ON, the microcontroller drives a column to 5V (HIGH) while the shift register pulls a row to 0V (LOW). This creates a forward-biased circuit, allowing current to flow and turn on the LED. Conversely, to keep an LED OFF, the system sets the row to 5V and the column to 0V. Because diodes physically block reverse current, this inverted voltage state stops the electron flow, keeping the unselected LEDs dark.
 
 ### 3. Connection to Real-time Laptop Audio
 The sequencer functions as a real digital instrument by generating and transmitting raw MIDI payloads (153 [Note On], Pitch, Speed) over the microcontroller's hardware UART - Universal Asynchronous Receiver Transmitter (we'll be focussing on the Transmit Pin 1 since this transmits data onto another device). These serial packets from the Arduino code are transmitted via the TX line into a software bridge (Hairless MIDI) and sent through a virtual cable (loopMIDI) to our online browser DAW (Digital Audio Workstation, we used midi.city here)
