@@ -13,7 +13,7 @@ An 8-step programmable drum machine built from scratch using Arduino Uno. This p
 * **Microcontroller:** Arduino Uno
 * **Logic IC:** 74HC595 (8-Bit Shift Register)
 * **Firmware:** C++ (Embedded)
-* **Data Pipeline:** Serial UART -> loopMIDI -> Hairless MIDI Bridge
+* **Data Pipeline:** Serial UART from the Arduino UNO -> loopMIDI -> Hairless MIDI Bridge -> Online Web Sequencer (midi.city)
 * **Schematic Capture:** EasyEDA
 
 
