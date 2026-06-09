@@ -59,7 +59,7 @@ The sequencer functions as a real digital instrument by generating and transmitt
 ### Schematics
 The complete electrical logic design were mapped out using **EasyEDA**. 
 
-* [View Schematic PDF](hardware/de)
+* [View Schematic PDF](hardware/drum_sequencer_schematic.pdf)
 
 ## Project Directory Structure
 
