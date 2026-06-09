@@ -65,9 +65,9 @@ The complete electrical logic design were mapped out using **EasyEDA**.
 
 ```text
 ├── hardware/
-│   ├── schematic.pdf                                            # Wiring diagrams and I/O connections
-│   ├── schematic_source_file.json
+│   ├── drum_sequencer_schematic.pdf                             # Wiring diagrams and I/O connections
+│   ├── drum_sequencer_schematic.tel
 │   ├── hardware_top_view.jpg                                    # Photos of Hardware and 74HC595 Shift Register connections
 ├── src/
-│   └── drum_machine.ino                                         # Main embedded C++ loop logic
+│   └── Drum_Beat_LED.ino                                        # Main embedded C++ loop logic
 └── README.md                                                    # Project documentation and engineering report
