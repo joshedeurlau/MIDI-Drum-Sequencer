@@ -44,7 +44,7 @@ Since there are not enough I/O pins on the microcontroller to drive the entire m
           |    |    |    +----+----+----+--------> [Bits 1-4] Unused Bits 
           |    |    +----------------------------> [Bit 5]  Matrix Row 3: Kick Drum (Pin 5)
           |    +---------------------------------> [Bit 6]  Matrix Row 2: Snare Drum (Pin 6)
-          +--------------------------------------> [Bit 7]  Matrix Row 1: Hi Hat (Pin 7)
+          +--------------------------------------> [Bit 7]  Matrix Row 1: Hi-Hat (Pin 7)
 ```
 * **Built-in Memory via 2D Bit Arrays:** The programmed musical sequence is stored in a `3x8` boolean array (`beatMatrix[row][col]`). The display logic then reads these saved bit states to physically draw the corresponding LEDs and trigger the MIDI audio.
 * **8-Bit Assembly:** Instead of toggling individual output pins, the code constructs a single 8-bit byte (`rowBits`) during every multiplexing cycle using `bitWrite()`. Bits 5, 6, and 7 pull their states from the 3x8 memory array to control the instrument rows (Kick, Snare, Hi-Hat).
